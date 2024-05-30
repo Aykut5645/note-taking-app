@@ -1,13 +1,14 @@
 import {createElement, useState} from 'react';
-import { HomeOutlined, PlusOutlined } from '@ant-design/icons';
-import {
+import { HomeOutlined, PlusOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
 } from '@ant-design/icons';
-import { Button, Layout, Menu, theme } from "antd";
-import { Outlet } from "react-router-dom";
 
-const { Header, Content, Sider } = Layout;
+import {Button, Layout, Menu, theme} from "antd";
+import {Outlet} from "react-router-dom";
+import Sider from "antd/es/layout/Sider";
+
+const { Header, Content } = Layout;
 
 const MENU_ITEMS = [
   { key: '1', label: 'Home', icon: HomeOutlined },
@@ -28,9 +29,31 @@ const AppLayout = () => {
 
   return (
     <Layout>
-      <Sider style={{overflow: 'hidden', height: '100vh'}} trigger={null} collapsible collapsed={collapsed}>
+      <Sider
+        style={{overflow: 'hidden', height: '100vh'}}
+        // trigger={null}
+        // collapsible
+        collapsed={collapsed}
+        breakpoint="sm"
+        onBreakpoint={(broken) => {
+          if (broken) setCollapsed(true);
+          else setCollapsed(false);
+        }}
+        onCollapse={(collapsed, type) => {
+          console.log('Here => ', collapsed, type);
+        }}
+      >
         <div style={{ margin: 'auto', width: 'fit-content', padding: 27 }}>
-          <h1 style={{color:'white'}}>NOTE<span style={{color:'white'}}>TAKING</span></h1>
+          {!collapsed && <h1 style={{
+            color: 'white',
+            fontFamily: 'cursive',
+            letterSpacing: 1
+          }}>Note<span style={{color: 'white'}}>Taking</span></h1>}
+          {collapsed && <h1 style={{
+            color: 'white',
+            fontFamily: 'cursive',
+            letterSpacing: 1
+          }}>N<span style={{color: 'white'}}>T</span></h1>}
         </div>
         <Menu
           theme="dark"
@@ -46,7 +69,7 @@ const AppLayout = () => {
             icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
             onClick={() => setCollapsed(!collapsed)}
             style={{
-              fontSize: '16px',
+              fontSize: '1.6rem',
               width: 64,
               height: 64,
             }}
