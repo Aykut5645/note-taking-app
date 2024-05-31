@@ -16,7 +16,7 @@ const CustomSider = ({ collapsed, setCollapsed }: CustomSiderProps) => {
       breakpoint="sm"
       collapsed={collapsed}
       onBreakpoint={breakPointHandler}
-      style={{overflow: 'hidden', height: '100vh'}}
+      style={{overflow: 'hidden', minHeight: '100vh'}}
      >
       <div style={{ margin: 'auto', width: 'fit-content', padding: 27 }}>
         <h1 style={{

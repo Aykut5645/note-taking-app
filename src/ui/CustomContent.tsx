@@ -4,15 +4,14 @@ import { Content } from "antd/es/layout/layout";
 
 const CustomContent = () => {
   const {
-    token: { colorBgContainer, borderRadiusLG },
+    token: { borderRadiusLG },
   } = theme.useToken();
 
   return (
     <Content
       style={{
         margin: '24px 16px',
-        padding: 24,
-        background: colorBgContainer,
+        // background: colorBgContainer,
         borderRadius: borderRadiusLG,
       }}
     >
