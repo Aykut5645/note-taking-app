@@ -1,4 +1,6 @@
 import Sider from "antd/es/layout/Sider";
+import { Link } from "react-router-dom";
+
 import Menu from "./CustomMenu.tsx";
 
 type CustomSiderProps = {
@@ -24,10 +26,12 @@ const CustomSider = ({ collapsed, setCollapsed }: CustomSiderProps) => {
           fontFamily: 'cursive',
           letterSpacing: 1
         }}>
-          {collapsed ? 'N' : 'Note' }
-          <span style={{color: 'white'}}>
-            {collapsed ? 'T' : 'Taking' }
-          </span>
+          <Link to="/">
+            {collapsed ? 'N' : 'Note' }
+            <span style={{color: 'white'}}>
+              {collapsed ? 'T' : 'Taking' }
+            </span>
+          </Link>
         </h1>
       </div>
       <Menu />

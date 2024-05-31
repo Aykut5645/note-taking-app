@@ -5,6 +5,7 @@ import Home from './pages/Home.tsx';
 import AddNote from "./pages/AddNote.tsx";
 import NoteDetails from "./pages/NoteDetails.tsx";
 import NoteList from "./pages/NoteList.tsx";
+import EditNote from "./pages/EditNote.tsx";
 
 const router = createBrowserRouter([
   {
@@ -20,12 +21,16 @@ const router = createBrowserRouter([
         element: <NoteList />,
       },
       {
+        path: '/note/:id',
+        element: <NoteDetails />,
+      },
+      {
         path: '/add-note',
         element: <AddNote />,
       },
       {
-        path: '/note/:id',
-        element: <NoteDetails />,
+        path: '/edit-note/:id',
+        element: <EditNote />,
       },
     ],
   },

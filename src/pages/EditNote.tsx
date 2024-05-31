@@ -6,30 +6,34 @@ type FormValues = {
   description?: string;
 };
 
-const AddNote = () => {
+const EditNote = () => {
   const handleOnFinish = (form: FormValues) => {
     console.log('Form Values => ', form);
   };
 
   return (
     <>
-      <h3 style={{fontSize: '1.8rem'}}>Add New Note</h3>
+      <h3 style={{fontSize: '1.8rem'}}>Edit New Note</h3>
       <Form
         layout="vertical"
         onFinish={handleOnFinish}
         style={{ maxWidth: 700, marginTop: 18 }}
+        initialValues={{
+          title: 'title',
+          description: 'description',
+        }}
       >
         <Form.Item label="Title:" rules={[{ required: true, message: 'Title is required!' }]}
                    name="title"
         >
-          <Input placeholder="Note title here..."/>
+          <Input placeholder="Note title here..." />
         </Form.Item>
         <Form.Item label="Description:" name="description">
           <TextArea rows={5} placeholder="Note description here..."/>
         </Form.Item>
         <Form.Item>
           <Space>
-            <Button type="primary" htmlType="submit">Add</Button>
+            <Button type="primary" htmlType="submit">Edit</Button>
             <Button htmlType="reset">Reset</Button>
           </Space>
         </Form.Item>
@@ -38,4 +42,4 @@ const AddNote = () => {
   );
 };
 
-export default AddNote;
+export default EditNote;

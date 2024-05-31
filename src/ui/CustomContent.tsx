@@ -11,7 +11,6 @@ const CustomContent = () => {
     <Content
       style={{
         margin: '24px 16px',
-        // background: colorBgContainer,
         borderRadius: borderRadiusLG,
       }}
     >
