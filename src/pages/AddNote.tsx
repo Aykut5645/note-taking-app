@@ -1,25 +1,37 @@
-import { Button, Form, Input } from 'antd';
+import {Button, Form, Input, Space} from 'antd';
 import TextArea from "antd/es/input/TextArea";
 
+type FormValues = {
+  title: string;
+  description?: string;
+};
+
 const AddNote = () => {
-  const [form] = Form.useForm();
+  const handleOnFinish = (form: FormValues) => {
+    console.log('Form Values => ', form);
+  };
 
   return (
     <>
-      <h3 style={{fontSize: '1.6rem'}}>Add New Note</h3>
+      <h3 style={{fontSize: '1.8rem'}}>Add New Note</h3>
       <Form
         layout="vertical"
-        form={form}
+        onFinish={handleOnFinish}
         style={{ maxWidth: 700, marginTop: 18 }}
       >
-        <Form.Item label="Title:">
-          <Input placeholder="input placeholder" />
+        <Form.Item label="Title:" rules={[{ required: true, message: 'Title is required!' }]}
+                   name="title"
+        >
+          <Input placeholder="Note title here..." />
         </Form.Item>
-        <Form.Item label="Description:">
-          <TextArea rows={5} />
+        <Form.Item label="Description:" name="description">
+          <TextArea rows={5} placeholder="Note description here..."/>
         </Form.Item>
         <Form.Item>
-          <Button type="primary">Submit</Button>
+          <Space>
+            <Button type="primary" htmlType="submit">Submit</Button>
+            <Button htmlType="reset">Reset</Button>
+          </Space>
         </Form.Item>
       </Form>
     </>
