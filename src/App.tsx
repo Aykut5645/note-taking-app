@@ -1,5 +1,6 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
+import NotesContextProvider from "./store/notes-context/NotesContext.tsx";
 import AppLayout from './ui/AppLayout.tsx';
 import Home from './pages/Home.tsx';
 import AddNote from "./pages/AddNote.tsx";
@@ -32,7 +33,11 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <NotesContextProvider>
+      <RouterProvider router={router} />
+    </NotesContextProvider>
+  );
 };
 
 export default App;
