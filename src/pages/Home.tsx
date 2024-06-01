@@ -1,5 +1,7 @@
+import NoteList from "../features/NoteList.tsx";
+
 const Home = () => {
-  return <div>Home Page</div>;
+  return <NoteList />;
 };
 
 export default Home;

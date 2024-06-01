@@ -4,7 +4,6 @@ import AppLayout from './ui/AppLayout.tsx';
 import Home from './pages/Home.tsx';
 import AddNote from "./pages/AddNote.tsx";
 import NoteDetails from "./pages/NoteDetails.tsx";
-import NoteList from "./pages/NoteList.tsx";
 import EditNote from "./pages/EditNote.tsx";
 
 const router = createBrowserRouter([
@@ -15,10 +14,6 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home />,
-      },
-      {
-        path: '/notes',
-        element: <NoteList />,
       },
       {
         path: '/note/:id',

@@ -1,5 +1,7 @@
+import { useNavigate } from "react-router-dom";
 import {Button, Form, Input, Space} from 'antd';
 import TextArea from "antd/es/input/TextArea";
+import { v4 as uuidv4 } from 'uuid';
 
 type FormValues = {
   title: string;
@@ -7,8 +9,20 @@ type FormValues = {
 };
 
 const AddNote = () => {
-  const handleOnFinish = (form: FormValues) => {
-    console.log('Form Values => ', form);
+  const navigate = useNavigate();
+
+  const handleOnFinish = (formValues: FormValues) => {
+    // console.log('Form Values => ', form);
+    const createdNote = { id: uuidv4(), ...formValues };
+    const existingNotes = localStorage.getItem('notes');
+    if (existingNotes) {
+      const parsedNotes: {id: string, title: string, description?: string}[] = JSON.parse(existingNotes);
+      parsedNotes.unshift(createdNote);
+      localStorage.setItem('notes', JSON.stringify(parsedNotes));
+    } else {
+      localStorage.setItem('notes', JSON.stringify([createdNote]));
+    }
+    navigate('/');
   };
 
   return (
