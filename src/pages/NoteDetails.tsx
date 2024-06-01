@@ -1,9 +1,21 @@
-import {Button, Divider, Flex, Space} from "antd";
 import {Link, useNavigate, useParams} from "react-router-dom";
-import { Modal } from 'antd';
-const {confirm} = Modal;
-import { useNotes } from "../hooks/useNotes.tsx";
+import {Button, Divider, Flex, Space, Modal} from "antd";
 import {ExclamationCircleFilled} from "@ant-design/icons";
+
+import { useNotes } from "../hooks/useNotes.tsx";
+const {confirm} = Modal;
+
+const showDeleteConfirm = (handler: () => void) => {
+  confirm({
+    title: 'Delete Note?',
+    content: 'Are you sure you want to delete this note?',
+    icon: <ExclamationCircleFilled />,
+    okType: 'danger',
+    okText: 'Yes',
+    cancelText: 'No',
+    onOk: handler,
+  });
+};
 
 const NoteDetails = () => {
   const { id } = useParams();
@@ -15,18 +27,6 @@ const NoteDetails = () => {
   const handleDeleteNote = () => {
     notesCtx.deleteNote(id!);
     navigate('/');
-  };
-
-  const showDeleteConfirm = () => {
-    confirm({
-      title: 'Delete Note?',
-      content: 'Are you sure you want to delete this note?',
-      icon: <ExclamationCircleFilled />,
-      okType: 'danger',
-      okText: 'Yes',
-      cancelText: 'No',
-      onOk: handleDeleteNote,
-    });
   };
 
   return (
@@ -44,7 +44,7 @@ const NoteDetails = () => {
         <Link to={`/edit-note/${id}`}>
           <Button type="primary">Edit</Button>
         </Link>
-        <Button onClick={showDeleteConfirm} danger>Delete</Button>
+        <Button onClick={() => showDeleteConfirm(handleDeleteNote)} danger>Delete</Button>
       </Flex>
     </>
   );
