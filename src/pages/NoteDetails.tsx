@@ -5,7 +5,7 @@ import {ExclamationCircleFilled} from "@ant-design/icons";
 import { useNotes } from "../hooks/useNotes.tsx";
 import Title from "../ui/Title.tsx";
 
-const {confirm} = Modal;
+const { confirm } = Modal;
 
 const showDeleteConfirm = (handler: () => void) => {
   confirm({

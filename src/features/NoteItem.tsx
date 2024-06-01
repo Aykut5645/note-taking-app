@@ -14,7 +14,6 @@ const NoteItem = ({ id, title, description }: NoteItemProps) => {
             extra={<Link to={`/note/${id}`}>More</Link>}
       >
         {description}
-
       </Card>
     </Col>
   );
