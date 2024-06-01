@@ -10,7 +10,7 @@ type NotesContextType = {
   notes: Note[];
   addNote: (note: Note) => void,
   deleteNote: (id: string) => void,
-  editNote: (id: string, updatedNote: Note) => void,
+  editNote: (id: string, updatedNote: Omit<Note, 'id'>) => void,
 };
 
 export const NotesContext = createContext<NotesContextType | null>(null);

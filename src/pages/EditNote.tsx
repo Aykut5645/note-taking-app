@@ -1,5 +1,8 @@
+import {useNavigate, useParams} from "react-router-dom";
 import {Button, Form, Input, Space} from 'antd';
 import TextArea from "antd/es/input/TextArea";
+
+import {useNotes} from "../hooks/useNotes.tsx";
 
 type FormValues = {
   title: string;
@@ -7,8 +10,15 @@ type FormValues = {
 };
 
 const EditNote = () => {
-  const handleOnFinish = (form: FormValues) => {
-    console.log('Form Values => ', form);
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const notesCtx = useNotes();
+
+  const currentNote = notesCtx.notes.find((note) => note.id === id);
+
+  const handleOnFinish = (formValues: FormValues) => {
+    notesCtx.editNote(id!, formValues);
+    navigate(`/note/${id}`);
   };
 
   return (
@@ -19,8 +29,8 @@ const EditNote = () => {
         onFinish={handleOnFinish}
         style={{ maxWidth: 700, marginTop: 18 }}
         initialValues={{
-          title: 'title',
-          description: 'description',
+          title: currentNote?.title,
+          description: currentNote?.description,
         }}
       >
         <Form.Item label="Title:" rules={[{ required: true, message: 'Title is required!' }]}

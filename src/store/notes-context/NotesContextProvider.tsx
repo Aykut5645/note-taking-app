@@ -6,14 +6,10 @@ type NotesContextProviderProps = {
 };
 
 const NotesContextProvider = ({ children }: NotesContextProviderProps) => {
-  const [notes, setNotes] = useState<Note[]>([]);
-
-  useEffect(() => {
-    const storedNotes = localStorage.getItem('notes');
-    if (storedNotes) {
-      setNotes(JSON.parse(storedNotes));
-    }
-  }, []);
+  const [notes, setNotes] = useState<Note[]>(() => {
+    const storedValue = localStorage.getItem('notes');
+    return storedValue ? JSON.parse(storedValue) : [];
+  });
 
   useEffect(() => {
     localStorage.setItem('notes', JSON.stringify(notes));
@@ -27,7 +23,7 @@ const NotesContextProvider = ({ children }: NotesContextProviderProps) => {
     setNotes(notes.filter((note) => note.id !== id));
   };
 
-  const editNote = (id: string, updatedNote: Note) => {
+  const editNote = (id: string, updatedNote: Omit<Note, 'id'>) => {
     setNotes(
       notes.map((note) => (note.id === id ? { ...note, ...updatedNote } : note))
     );
