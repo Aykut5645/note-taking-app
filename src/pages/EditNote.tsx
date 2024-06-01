@@ -5,6 +5,7 @@ import Title from "../ui/Title.tsx";
 import NoteForm from "../components/NoteForm.tsx";
 import CustomEmpty from "../ui/CustomEmpty.tsx";
 import {Button} from "antd";
+import {useMoveBack} from "../hooks/useMoveBack.tsx";
 
 type FormValues = {
   title: string;
@@ -15,6 +16,7 @@ const EditNote = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const notesCtx = useNotes();
+  const moveBack = useMoveBack();
 
   const handleSubmit = (formValues: FormValues) => {
     notesCtx.editNote(id!, formValues);
@@ -30,7 +32,7 @@ const EditNote = () => {
           There is no such created note.
         </span>
       }>
-        <Button type="primary" onClick={() => navigate(-1)}>
+        <Button type="primary" onClick={moveBack}>
           Go back
         </Button>
       </CustomEmpty>
