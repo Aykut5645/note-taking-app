@@ -3,6 +3,8 @@ import {Button, Divider, Flex, Space, Modal} from "antd";
 import {ExclamationCircleFilled} from "@ant-design/icons";
 
 import { useNotes } from "../hooks/useNotes.tsx";
+import Title from "../ui/Title.tsx";
+
 const {confirm} = Modal;
 
 const showDeleteConfirm = (handler: () => void) => {
@@ -31,8 +33,7 @@ const NoteDetails = () => {
 
   return (
     <>
-      <h2>Your Note</h2>
-      <Divider/>
+      <Title>Your Note</Title>
       <div>
         <Space direction="vertical" size="middle">
           <h3>{currentNote?.title}</h3>
@@ -40,7 +41,7 @@ const NoteDetails = () => {
         </Space>
       </div>
       <Divider/>
-      <Flex gap="small" wrap justify="flex-end">
+      <Flex gap="small" wrap>
         <Link to={`/edit-note/${id}`}>
           <Button type="primary">Edit</Button>
         </Link>

@@ -3,6 +3,7 @@ import {Button, Form, Input, Space} from 'antd';
 import TextArea from "antd/es/input/TextArea";
 
 import {useNotes} from "../hooks/useNotes.tsx";
+import Title from "../ui/Title.tsx";
 
 type FormValues = {
   title: string;
@@ -23,7 +24,7 @@ const EditNote = () => {
 
   return (
     <>
-      <h3 style={{fontSize: '1.8rem'}}>Edit New Note</h3>
+      <Title>Edit New Note</Title>
       <Form
         layout="vertical"
         onFinish={handleOnFinish}

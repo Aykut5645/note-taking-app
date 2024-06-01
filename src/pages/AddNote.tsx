@@ -2,7 +2,9 @@ import { useNavigate } from "react-router-dom";
 import {Button, Form, Input, Space} from 'antd';
 import TextArea from "antd/es/input/TextArea";
 import { v4 as uuidv4 } from 'uuid';
+
 import {useNotes} from "../hooks/useNotes.tsx";
+import Title from "../ui/Title.tsx";
 
 type FormValues = {
   title: string;
@@ -22,7 +24,7 @@ const AddNote = () => {
 
   return (
     <>
-      <h3 style={{fontSize: '1.8rem'}}>Add New Note</h3>
+      <Title>Add New Note</Title>
       <Form
         layout="vertical"
         onFinish={handleOnFinish}
