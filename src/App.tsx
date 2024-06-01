@@ -6,7 +6,7 @@ import Home from './pages/Home.tsx';
 import AddNote from "./pages/AddNote.tsx";
 import NoteDetails from "./pages/NoteDetails.tsx";
 import EditNote from "./pages/EditNote.tsx";
-import ErrorPage from "./ui/ErrorPage.tsx";
+import ErrorPage from "./pages/ErrorPage.tsx";
 
 const router = createBrowserRouter([
   {

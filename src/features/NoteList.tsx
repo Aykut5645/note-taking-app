@@ -1,10 +1,11 @@
 import {useState} from "react";
-import {Row, Pagination, Button, Empty} from 'antd';
+import {Link} from "react-router-dom";
+import {Row, Pagination, Button} from 'antd';
 import NoteItem from "./NoteItem.tsx";
 
 import {NOTES_PER_PAGE} from '../utils/constants.tsx';
 import {useNotes} from "../hooks/useNotes.tsx";
-import {Link} from "react-router-dom";
+import CustomEmpty from "../ui/CustomEmpty.tsx";
 
 const NoteList = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -22,22 +23,20 @@ const NoteList = () => {
 
   const visibleNotes = getVisibleNotes();
 
+  if (notesCtx.notes.length === 0) {
+    return (
+      <CustomEmpty description={
+        <span>
+              You don't have any notes yet. Click the button below to create one.
+            </span>
+      }>
+        <Link to="/add-note"><Button type="primary">Create Now</Button></Link>
+      </CustomEmpty>
+    );
+  }
+
   return (
     <>
-      {notesCtx.notes.length === 0 ? (
-        <Empty
-          image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
-          imageStyle={{ height: '60%' }}
-          description={
-            <span>
-            You don't have any notes yet. Click the button below to create one.
-          </span>
-          }
-        >
-          <Link to="/add-note"><Button type="primary">Create Now</Button></Link>
-        </Empty>
-      ) : (
-        <>
           <Row gutter={16}>
             {visibleNotes?.map((note) => (
               <NoteItem key={note.id} {...note} />
@@ -50,8 +49,6 @@ const NoteList = () => {
             pageSize={NOTES_PER_PAGE}
             onChange={handlePageChange}
           />
-        </>
-      )}
     </>
   );
 };
