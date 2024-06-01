@@ -27,8 +27,8 @@ const NoteList = () => {
     return (
       <CustomEmpty description={
         <span>
-              You don't have any notes yet. Click the button below to create one.
-            </span>
+          You don't have any notes yet. Click the button below to create one.
+        </span>
       }>
         <Link to="/add-note"><Button type="primary">Create Now</Button></Link>
       </CustomEmpty>

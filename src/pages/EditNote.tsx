@@ -1,9 +1,10 @@
-import {useNavigate, useParams} from "react-router-dom";
+import { useNavigate, useParams} from "react-router-dom";
 
 import {useNotes} from "../hooks/useNotes.tsx";
 import Title from "../ui/Title.tsx";
-import NoteForm from "../features/NoteForm.tsx";
-import {Empty} from "antd";
+import NoteForm from "../components/NoteForm.tsx";
+import CustomEmpty from "../ui/CustomEmpty.tsx";
+import {Button} from "antd";
 
 type FormValues = {
   title: string;
@@ -22,7 +23,19 @@ const EditNote = () => {
 
   const currentNote = notesCtx.notes.find((note) => note.id === id);
 
-  if (!currentNote) return <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />;
+  if (!currentNote) {
+    return (
+      <CustomEmpty description={
+        <span>
+          There is no such created note.
+        </span>
+      }>
+        <Button type="primary" onClick={() => navigate(-1)}>
+          Go back
+        </Button>
+      </CustomEmpty>
+    );
+  }
 
   return (
     <>

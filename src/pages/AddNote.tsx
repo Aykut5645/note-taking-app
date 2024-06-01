@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import {useNotes} from "../hooks/useNotes.tsx";
 import Title from "../ui/Title.tsx";
-import NoteForm from "../features/NoteForm.tsx";
+import NoteForm from "../components/NoteForm.tsx";
 
 type FormValues = {
   title: string;

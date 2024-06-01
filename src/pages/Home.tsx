@@ -1,4 +1,4 @@
-import NoteList from "../features/NoteList.tsx";
+import NoteList from "../components/NoteList.tsx";
 
 const Home = () => {
   return <NoteList />;
