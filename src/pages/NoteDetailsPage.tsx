@@ -1,7 +1,7 @@
 import { Divider } from 'antd';
 
 import CustomTitle from '../ui/CustomTitle.tsx';
-import NoteDetailsContent from '../components/NoteDetailsContent.tsx';
+import NoteDetailsContent from '../features/NoteDetailsContent.tsx';
 
 const NoteDetailsPage = () => {
   return (

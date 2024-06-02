@@ -1,8 +1,9 @@
 import { useParams } from 'react-router-dom';
-import CustomTitle from '../ui/CustomTitle.tsx';
 import { Divider } from 'antd';
-import EditNote from '../components/EditNote.tsx';
-import AddNote from '../components/AddNote.tsx';
+
+import CustomTitle from '../ui/CustomTitle.tsx';
+import EditNote from '../features/EditNote.tsx';
+import AddNote from '../features/AddNote.tsx';
 
 const NoteManagerPage = () => {
   const { id } = useParams();

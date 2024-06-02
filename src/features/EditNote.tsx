@@ -17,7 +17,7 @@ const EditNote = ({ id }: { id: string }) => {
   const moveBack = useMoveBack();
 
   const handleSubmit = (formValues: FormValues) => {
-    notesCtx.editNote(id!, formValues);
+    notesCtx.editNote(id, formValues);
     navigate(`/note/${id}`);
   };
 
@@ -39,7 +39,7 @@ const EditNote = ({ id }: { id: string }) => {
 
   return (
     <NoteForm
-      id={id!}
+      id={id}
       action="Edit"
       currentItem={{
         title: currentNote.title,

@@ -1,4 +1,4 @@
-import NoteList from '../components/NoteList.tsx';
+import NoteList from '../features/NoteList.tsx';
 import { Divider } from 'antd';
 
 import CustomTitle from '../ui/CustomTitle.tsx';
