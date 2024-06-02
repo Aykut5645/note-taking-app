@@ -1,11 +1,11 @@
 import { useNavigate, useParams } from 'react-router-dom';
+import { Button } from 'antd';
 
 import { useNotes } from '../hooks/useNotes.tsx';
-import Title from '../ui/Title.tsx';
-import NoteForm from '../components/NoteForm.tsx';
-import { Button } from 'antd';
 import { useMoveBack } from '../hooks/useMoveBack.tsx';
+import CustomTitle from '../ui/CustomTitle.tsx';
 import CustomResult from "../ui/CustomResult.tsx";
+import NoteForm from '../components/NoteForm.tsx';
 
 type FormValues = {
   title: string;
@@ -41,7 +41,7 @@ const EditNote = () => {
 
   return (
     <>
-      <Title>Edit New Note</Title>
+      <CustomTitle>Edit New Note</CustomTitle>
       <NoteForm
         id={id!}
         action="Edit"

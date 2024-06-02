@@ -32,8 +32,8 @@ const NoteForm = (props: NoteFormProps) => {
     >
       <Form.Item
         name="title"
-        label="Title:"
-        rules={[{ required: true, message: 'Title is required!' }]}
+        label="CustomTitle:"
+        rules={[{ required: true, message: 'CustomTitle is required!' }]}
       >
         <Input placeholder="Note title here..." />
       </Form.Item>

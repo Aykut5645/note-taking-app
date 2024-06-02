@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { formatCreationDate } from '../utils/helpers.tsx';
 import { useNotes } from '../hooks/useNotes.tsx';
-import Title from '../ui/Title.tsx';
+import CustomTitle from '../ui/CustomTitle.tsx';
 import NoteForm from '../components/NoteForm.tsx';
 
 type FormValues = {
@@ -28,7 +28,7 @@ const AddNote = () => {
 
   return (
     <>
-      <Title>Add New Note</Title>
+      <CustomTitle>Add New Note</CustomTitle>
       <NoteForm action="Add" handleSubmit={handleSubmit} />
     </>
   );

@@ -3,7 +3,7 @@ import { Button, Space } from 'antd';
 
 import { useNotes } from '../hooks/useNotes.tsx';
 import { useMoveBack } from '../hooks/useMoveBack.tsx';
-import Title from '../ui/Title.tsx';
+import CustomTitle from '../ui/CustomTitle.tsx';
 import CustomResult from '../ui/CustomResult.tsx';
 import NoteDetailsFooter from '../components/NoteDetailsFooter.tsx';
 
@@ -30,7 +30,7 @@ const NoteDetails = () => {
 
   return (
     <>
-      <Title>Your Note</Title>
+      <CustomTitle>Your Note</CustomTitle>
       <Space direction="vertical" size="middle">
         <h3>{currentNote.title}</h3>
         <p>{currentNote.description}</p>
