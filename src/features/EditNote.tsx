@@ -5,11 +5,7 @@ import { useNotes } from '../hooks/useNotes.tsx';
 import { useMoveBack } from '../hooks/useMoveBack.tsx';
 import CustomResult from '../ui/CustomResult.tsx';
 import NoteForm from './NoteForm.tsx';
-
-type FormValues = {
-  title: string;
-  description?: string;
-};
+import { type FormValues } from "./AddNote.tsx";
 
 const EditNote = ({ id }: { id: string }) => {
   const navigate = useNavigate();

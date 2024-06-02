@@ -5,7 +5,7 @@ import { useNotes } from '../hooks/useNotes.tsx';
 import { formatCreationDate } from '../utils/helpers.tsx';
 import NoteForm from './NoteForm.tsx';
 
-type FormValues = {
+export type FormValues = {
   title: string;
   description?: string;
 };
