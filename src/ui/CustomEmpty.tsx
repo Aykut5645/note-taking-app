@@ -1,7 +1,7 @@
-import { Empty } from "antd";
-import {type CSSProperties, type ReactNode} from "react";
+import { Empty } from 'antd';
+import { type CSSProperties, type ReactNode } from 'react';
 
-import {EMPTY_IMAGE_URL} from "../utils/constants.tsx";
+import { EMPTY_IMAGE_URL } from '../utils/constants.tsx';
 
 type CustomEmpty = {
   children: ReactNode;
