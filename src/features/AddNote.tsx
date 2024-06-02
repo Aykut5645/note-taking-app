@@ -22,7 +22,11 @@ const AddNote = () => {
     };
 
     notesCtx.addNote(createdNote);
-    navigate('/');
+    const ITEMS_PER_PAGE = 6; // Replace with your actual items per page
+    const totalPages = Math.ceil((notesCtx.notes.length + 1) / ITEMS_PER_PAGE);
+
+    // Navigate to the last page, ensuring it includes the newly added note
+    navigate(`/notes/${totalPages}`);
   };
 
   return <NoteForm action="Add" handleSubmit={handleSubmit} />;
