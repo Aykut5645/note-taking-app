@@ -35,7 +35,7 @@
 **Installation**
  - Clone the repository or download the source code.
  - Install dependencies using `npm install`.
- - Start the development server using `npm start`.
+ - Start the development server using `npm run dev`.
 
 ## Licence
 
