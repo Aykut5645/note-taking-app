@@ -16,7 +16,7 @@ const NoteFormContent = ({ action }: NoteFormContentProps) => {
         <Input placeholder="Note title here..." />
       </Form.Item>
       <Form.Item label="Description:" name="description">
-        <TextArea rows={5} placeholder="Note description here..." />
+        <TextArea rows={8} placeholder="Note description here..." />
       </Form.Item>
       <Form.Item>
         <Space>

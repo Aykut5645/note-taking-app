@@ -11,13 +11,13 @@ const fontSizes = {
   5: '1.6rem',
 };
 
-type TitleProps = {
+type CustomTitleProps = {
   level: 1 | 2 | 3 | 4 | 5;
   children: ReactNode;
   style?: CSSProperties;
 };
 
-const CustomTitle = ({ level, children, style }: TitleProps) => {
+const CustomTitle = ({ level, children, style }: CustomTitleProps) => {
   return (
     <Title style={{ fontSize: fontSizes[level], ...style }}>{children}</Title>
   );
