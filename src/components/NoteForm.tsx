@@ -1,5 +1,5 @@
-import {Button, Form, Input, Space} from "antd";
-import TextArea from "antd/es/input/TextArea";
+import { Button, Form, Input, Space } from 'antd';
+import TextArea from 'antd/es/input/TextArea';
 
 type NoteFormAdd = {
   action: 'Add';
@@ -23,21 +23,28 @@ const NoteForm = (props: NoteFormProps) => {
       style={{ maxWidth: 700, marginTop: 18 }}
       initialValues={
         'id' in props
-          ? {title: props.currentItem.title, description: props.currentItem.description }
+          ? {
+              title: props.currentItem.title,
+              description: props.currentItem.description,
+            }
           : {}
       }
     >
-      <Form.Item label="Title:" rules={[{ required: true, message: 'Title is required!' }]}
-                 name="title"
+      <Form.Item
+        label="Title:"
+        rules={[{ required: true, message: 'Title is required!' }]}
+        name="title"
       >
         <Input placeholder="Note title here..." />
       </Form.Item>
       <Form.Item label="Description:" name="description">
-        <TextArea rows={5} placeholder="Note description here..."/>
+        <TextArea rows={5} placeholder="Note description here..." />
       </Form.Item>
       <Form.Item>
         <Space>
-          <Button type="primary" htmlType="submit">{props.action}</Button>
+          <Button type="primary" htmlType="submit">
+            {props.action}
+          </Button>
           <Button htmlType="reset">Reset</Button>
         </Space>
       </Form.Item>

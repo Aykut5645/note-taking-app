@@ -3,9 +3,9 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useNotes } from '../hooks/useNotes.tsx';
 import Title from '../ui/Title.tsx';
 import NoteForm from '../components/NoteForm.tsx';
-import CustomEmpty from '../ui/CustomEmpty.tsx';
 import { Button } from 'antd';
 import { useMoveBack } from '../hooks/useMoveBack.tsx';
+import CustomResult from "../ui/CustomResult.tsx";
 
 type FormValues = {
   title: string;
@@ -27,11 +27,15 @@ const EditNote = () => {
 
   if (!currentNote) {
     return (
-      <CustomEmpty description={<span>There is no such created note.</span>}>
-        <Button type="primary" onClick={moveBack}>
-          Go back
-        </Button>
-      </CustomEmpty>
+      <CustomResult
+        status="warning"
+        title="We couldn't find the note you want to edit."
+        extra={
+          <Button type="primary" onClick={moveBack}>
+            Go back
+          </Button>
+        }
+      />
     );
   }
 
