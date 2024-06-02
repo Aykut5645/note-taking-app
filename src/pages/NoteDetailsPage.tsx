@@ -3,7 +3,7 @@ import { Divider } from 'antd';
 import CustomTitle from '../ui/CustomTitle.tsx';
 import NoteDetailsContent from '../components/NoteDetailsContent.tsx';
 
-const NoteDetails = () => {
+const NoteDetailsPage = () => {
   return (
     <>
       <CustomTitle level={3}>Your Note</CustomTitle>
@@ -13,4 +13,4 @@ const NoteDetails = () => {
   );
 };
 
-export default NoteDetails;
+export default NoteDetailsPage;

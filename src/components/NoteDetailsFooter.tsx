@@ -30,7 +30,7 @@ const NoteDetailsFooter = ({ id }: { id: string }) => {
     <>
       <Divider />
       <Flex gap="small" wrap>
-        <Link to={`/edit-note/${id}`}>
+        <Link to={`/add-note/${id}`}>
           <Button type="primary">Edit</Button>
         </Link>
         <Button danger onClick={() => showDeleteConfirm(handleDeleteNote)}>

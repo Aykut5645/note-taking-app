@@ -1,19 +1,17 @@
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Button } from 'antd';
 
 import { useNotes } from '../hooks/useNotes.tsx';
 import { useMoveBack } from '../hooks/useMoveBack.tsx';
-import CustomTitle from '../ui/CustomTitle.tsx';
-import CustomResult from "../ui/CustomResult.tsx";
-import NoteForm from '../components/NoteForm.tsx';
+import CustomResult from '../ui/CustomResult.tsx';
+import NoteForm from './NoteForm.tsx';
 
 type FormValues = {
   title: string;
   description?: string;
 };
 
-const EditNote = () => {
-  const { id } = useParams();
+const EditNote = ({ id }: { id: string }) => {
   const navigate = useNavigate();
   const notesCtx = useNotes();
   const moveBack = useMoveBack();
@@ -40,18 +38,15 @@ const EditNote = () => {
   }
 
   return (
-    <>
-      <CustomTitle>Edit New Note</CustomTitle>
-      <NoteForm
-        id={id!}
-        action="Edit"
-        currentItem={{
-          title: currentNote.title,
-          description: currentNote.description,
-        }}
-        handleSubmit={handleSubmit}
-      />
-    </>
+    <NoteForm
+      id={id!}
+      action="Edit"
+      currentItem={{
+        title: currentNote.title,
+        description: currentNote.description,
+      }}
+      handleSubmit={handleSubmit}
+    />
   );
 };
 

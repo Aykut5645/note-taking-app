@@ -1,12 +1,11 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import AppLayout from './ui/AppLayout.tsx';
-import Home from './pages/Home.tsx';
-import AddNote from './pages/AddNote.tsx';
-import NoteDetails from './pages/NoteDetails.tsx';
-import EditNote from './pages/EditNote.tsx';
+import HomePage from './pages/HomePage.tsx';
+import NoteDetailsPage from './pages/NoteDetailsPage.tsx';
 import ErrorPage from './pages/ErrorPage.tsx';
 import NotesContextProvider from './store/notes-context/NotesContextProvider.tsx';
+import NoteManagerPage from './pages/NoteManagerPage.tsx';
 
 const router = createBrowserRouter([
   {
@@ -21,19 +20,19 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home />,
+        element: <HomePage />,
       },
       {
         path: '/note/:id',
-        element: <NoteDetails />,
+        element: <NoteDetailsPage />,
       },
       {
         path: '/add-note',
-        element: <AddNote />,
+        element: <NoteManagerPage />,
       },
       {
-        path: '/edit-note/:id',
-        element: <EditNote />,
+        path: '/add-note/:id',
+        element: <NoteManagerPage />,
       },
     ],
   },

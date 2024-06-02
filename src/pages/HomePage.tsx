@@ -3,7 +3,7 @@ import { Divider } from 'antd';
 
 import CustomTitle from '../ui/CustomTitle.tsx';
 
-const Home = () => {
+const HomePage = () => {
   return (
     <>
       <CustomTitle style={{ textAlign: 'center' }} level={3}>
@@ -15,4 +15,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;
