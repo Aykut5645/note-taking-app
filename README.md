@@ -13,6 +13,7 @@
  - Persistent note storage using local storage
  - Responsive and interactive UI with Ant Design
  - Link creation within notes
+ - Create, Edit, and Delete notes for ultimate control
  - Paginated note listing for large datasets
 
  **Pages**
@@ -35,7 +36,12 @@
 **Installation**
  - Clone the repository or download the source code.
  - Install dependencies using `npm install`.
- - Start the development server using `npm run dev`.
+ - Start the development server using `npm run dev`. This will typically launch the application in your browser at `http:localhost:5173`.
+ **Note:** If you see a different port number in your terminal output, use that port instead of `5173` in the URL.
+
+**Usage**
+ - Use the interface to create, edit, delete notes, and navigate between pages.
+ - Notes are automatically saved to local storage and persist across browser refreshes.
 
 ## Licence
 
