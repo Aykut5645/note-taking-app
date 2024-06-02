@@ -1,11 +1,11 @@
-import { useNavigate, useParams} from "react-router-dom";
+import { useNavigate, useParams } from 'react-router-dom';
 
-import {useNotes} from "../hooks/useNotes.tsx";
-import Title from "../ui/Title.tsx";
-import NoteForm from "../components/NoteForm.tsx";
-import CustomEmpty from "../ui/CustomEmpty.tsx";
-import {Button} from "antd";
-import {useMoveBack} from "../hooks/useMoveBack.tsx";
+import { useNotes } from '../hooks/useNotes.tsx';
+import Title from '../ui/Title.tsx';
+import NoteForm from '../components/NoteForm.tsx';
+import CustomEmpty from '../ui/CustomEmpty.tsx';
+import { Button } from 'antd';
+import { useMoveBack } from '../hooks/useMoveBack.tsx';
 
 type FormValues = {
   title: string;
@@ -27,11 +27,7 @@ const EditNote = () => {
 
   if (!currentNote) {
     return (
-      <CustomEmpty description={
-        <span>
-          There is no such created note.
-        </span>
-      }>
+      <CustomEmpty description={<span>There is no such created note.</span>}>
         <Button type="primary" onClick={moveBack}>
           Go back
         </Button>
@@ -47,7 +43,7 @@ const EditNote = () => {
         action="Edit"
         currentItem={{
           title: currentNote.title,
-          description: currentNote.description
+          description: currentNote.description,
         }}
         handleSubmit={handleSubmit}
       />
