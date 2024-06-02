@@ -1,4 +1,4 @@
-import { Button, Layout, theme } from 'antd';
+import { Button, Layout } from 'antd';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 
 const { Header } = Layout;
@@ -9,12 +9,14 @@ type CustomHeaderProps = {
 };
 
 const CustomHeader = ({ collapsed, setCollapsed }: CustomHeaderProps) => {
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
-
   return (
-    <Header style={{ padding: 0, background: colorBgContainer }}>
+    <Header
+      style={{
+        padding: 0,
+        background: 'white',
+        borderBottom: '3px solid #001529',
+      }}
+    >
       <Button
         type="text"
         icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}

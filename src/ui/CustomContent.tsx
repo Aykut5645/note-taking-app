@@ -5,7 +5,7 @@ const CustomContent = () => {
   return (
     <Content
       style={{
-        margin: '2.4rem 1.6rem',
+        padding: '2.4rem 1.6rem',
       }}
     >
       <Outlet />
