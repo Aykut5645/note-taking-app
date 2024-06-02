@@ -1,9 +1,10 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 
-import {useNotes} from "../hooks/useNotes.tsx";
-import Title from "../ui/Title.tsx";
-import NoteForm from "../components/NoteForm.tsx";
+import { formatCreationDate } from '../utils/helpers.tsx';
+import { useNotes } from '../hooks/useNotes.tsx';
+import Title from '../ui/Title.tsx';
+import NoteForm from '../components/NoteForm.tsx';
 
 type FormValues = {
   title: string;
@@ -15,7 +16,11 @@ const AddNote = () => {
   const notesCtx = useNotes();
 
   const handleSubmit = (formValues: FormValues) => {
-    const createdNote = { id: uuidv4(), ...formValues };
+    const createdNote = {
+      ...formValues,
+      id: uuidv4(),
+      createdAt: formatCreationDate(new Date()),
+    };
 
     notesCtx.addNote(createdNote);
     navigate('/');
@@ -25,26 +30,6 @@ const AddNote = () => {
     <>
       <Title>Add New Note</Title>
       <NoteForm action="Add" handleSubmit={handleSubmit} />
-      {/*<Form*/}
-      {/*  layout="vertical"*/}
-      {/*  onFinish={handleOnFinish}*/}
-      {/*  style={{ maxWidth: 700, marginTop: 18 }}*/}
-      {/*>*/}
-      {/*  <Form.Item label="Title:" rules={[{ required: true, message: 'Title is required!' }]}*/}
-      {/*             name="title"*/}
-      {/*  >*/}
-      {/*    <Input placeholder="Note title here..."/>*/}
-      {/*  </Form.Item>*/}
-      {/*  <Form.Item label="Description:" name="description">*/}
-      {/*    <TextArea rows={5} placeholder="Note description here..."/>*/}
-      {/*  </Form.Item>*/}
-      {/*  <Form.Item>*/}
-      {/*    <Space>*/}
-      {/*      <Button type="primary" htmlType="submit">Add</Button>*/}
-      {/*      <Button htmlType="reset">Reset</Button>*/}
-      {/*    </Space>*/}
-      {/*  </Form.Item>*/}
-      {/*</Form>*/}
     </>
   );
 };

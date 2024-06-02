@@ -2,14 +2,16 @@ import { Link } from 'react-router-dom';
 import { Card, Col, Typography } from 'antd';
 
 const { Paragraph } = Typography;
+const { Meta } = Card;
 
 type NoteItemProps = {
   id: string;
   title: string;
   description?: string;
+  createdAt: string;
 };
 
-const NoteItem = ({ id, title, description }: NoteItemProps) => {
+const NoteItem = ({ id, title, description, createdAt }: NoteItemProps) => {
   return (
     <Col
       style={{ marginBottom: 16, height: '100%' }}
@@ -20,13 +22,13 @@ const NoteItem = ({ id, title, description }: NoteItemProps) => {
     >
       <Card
         style={{
-          maxHeight: '25rem',
-          minHeight: '25rem',
-          textAlign: 'justify'
+          minHeight: '28rem',
+          textAlign: 'justify',
         }}
         title={title}
         bordered={false}
         extra={<Link to={`/note/${id}`}>See More</Link>}
+        actions={[<Meta description={createdAt} />]}
       >
         <Paragraph ellipsis={{ rows: 5 }}>{description}</Paragraph>
       </Card>

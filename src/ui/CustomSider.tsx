@@ -1,7 +1,7 @@
-import Sider from "antd/es/layout/Sider";
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import Sider from 'antd/es/layout/Sider';
 
-import Menu from "./CustomMenu.tsx";
+import Menu from './CustomMenu.tsx';
 
 type CustomSiderProps = {
   collapsed: boolean;
@@ -18,19 +18,19 @@ const CustomSider = ({ collapsed, setCollapsed }: CustomSiderProps) => {
       breakpoint="sm"
       collapsed={collapsed}
       onBreakpoint={breakPointHandler}
-      style={{overflow: 'hidden', minHeight: '100vh'}}
-     >
+      style={{ overflow: 'hidden', minHeight: '100vh' }}
+    >
       <div style={{ margin: 'auto', width: 'fit-content', padding: 27 }}>
-        <h1 style={{
-          color: 'white',
-          fontFamily: 'cursive',
-          letterSpacing: 1
-        }}>
+        <h1
+          style={{
+            color: 'white',
+            fontFamily: 'cursive',
+            letterSpacing: 1,
+          }}
+        >
           <Link to="/">
-            {collapsed ? 'N' : 'Note' }
-            <span style={{color: 'white'}}>
-              {collapsed ? 'T' : 'Taking' }
-            </span>
+            {collapsed ? 'N' : 'Note'}
+            <span style={{ color: 'white' }}>{collapsed ? 'T' : 'Taking'}</span>
           </Link>
         </h1>
       </div>

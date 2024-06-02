@@ -1,4 +1,4 @@
-import { type ReactNode, useEffect, useState } from "react";
+import { type ReactNode, useEffect, useState } from 'react';
 import { type Note, NotesContext } from './NotesContext.tsx';
 
 type NotesContextProviderProps = {
@@ -23,16 +23,17 @@ const NotesContextProvider = ({ children }: NotesContextProviderProps) => {
     setNotes(notes.filter((note) => note.id !== id));
   };
 
-  const editNote = (id: string, updatedNote: Omit<Note, 'id'>) => {
+  const editNote = (
+    id: string,
+    updatedNote: Omit<Note, 'id' | 'createdAt'>
+  ) => {
     setNotes(
       notes.map((note) => (note.id === id ? { ...note, ...updatedNote } : note))
     );
   };
 
   return (
-    <NotesContext.Provider
-      value={{ notes, addNote, deleteNote, editNote }}
-    >
+    <NotesContext.Provider value={{ notes, addNote, deleteNote, editNote }}>
       {children}
     </NotesContext.Provider>
   );

@@ -1,20 +1,28 @@
-import {Link} from "react-router-dom";
-import {GetProp, Menu, MenuProps} from "antd";
-import { HomeOutlined, PlusOutlined } from "@ant-design/icons";
+import { Link } from 'react-router-dom';
+import { GetProp, Menu, MenuProps } from 'antd';
+import { HomeOutlined, PlusOutlined } from '@ant-design/icons';
 
 type MenuItem = GetProp<MenuProps, 'items'>[number];
 
 const ITEMS: MenuItem[] = [
   {
     key: '1',
-    icon: <Link to="/"><HomeOutlined /></Link>,
+    icon: (
+      <Link to="/">
+        <HomeOutlined />
+      </Link>
+    ),
     label: 'Home',
   },
   {
     key: '2',
-    icon: <Link to="/add-note"><PlusOutlined /></Link>,
+    icon: (
+      <Link to="/add-note">
+        <PlusOutlined />
+      </Link>
+    ),
     label: 'Add',
-  }
+  },
 ];
 
 const CustomMenu = () => {
@@ -22,7 +30,7 @@ const CustomMenu = () => {
     <Menu
       theme="dark"
       mode="inline"
-      defaultSelectedKeys={["1"]}
+      defaultSelectedKeys={['1']}
       items={ITEMS}
     />
   );
