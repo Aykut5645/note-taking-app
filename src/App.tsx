@@ -24,10 +24,14 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Navigate to="/notes/1" replace />,
+        element: <Navigate to="/notes" replace />,
       },
       {
-        path: '/notes/:pageNumber',
+        path: '/notes',
+        element: <HomePage />,
+      },
+      {
+        path: '/notes/:page',
         element: <HomePage />,
       },
       {

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Row, Pagination, Button } from 'antd';
 
@@ -8,14 +8,24 @@ import NoteItem from './NoteItem.tsx';
 import CustomEmpty from '../ui/CustomEmpty.tsx';
 
 const NoteList = () => {
-  const { pageNumber } = useParams();
-  const [currentPage, setCurrentPage] = useState(pageNumber ? +pageNumber : 1);
+  const { page } = useParams();
+  const [currentPage, setCurrentPage] = useState(page ? +page : 1);
   const notesCtx = useNotes();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    if (currentPage === 1) {
+      navigate('/notes', { replace: true });
+    }
+  }, [currentPage, navigate]);
+
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
-    navigate(`/notes/${page}`);
+    if (page === 1) {
+      navigate('/notes', { replace: true });
+    } else {
+      navigate(`/notes/${page}`);
+    }
   };
 
   const getVisibleNotes = () => {
