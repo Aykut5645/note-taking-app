@@ -1,9 +1,14 @@
 # Note Taking App
+
+## Live Demo
+
+This application is deployed on Netlify: https://precious-trifle-d496c3.netlify.app
  
 ## About the project
 
 **Tech Stack**
  - React.js
+ - TypeScript
  - Vite
  - SCSS
  - Ant Design
