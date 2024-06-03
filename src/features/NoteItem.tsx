@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Card, Col, Typography } from 'antd';
+import { Card, Col, Typography, Empty } from 'antd';
 
 const { Paragraph } = Typography;
 const { Meta } = Card;
@@ -28,9 +28,18 @@ const NoteItem = ({ id, title, description, createdAt }: NoteItemProps) => {
         title={title}
         bordered={false}
         extra={<Link to={`/note/${id}`}>See More</Link>}
-        actions={[<Meta description={createdAt} />]}
+        actions={[
+          <Meta
+            style={{ cursor: 'none', pointerEvents: 'none' }}
+            description={createdAt}
+          />,
+        ]}
       >
-        <Paragraph ellipsis={{ rows: 5 }}>{description}</Paragraph>
+        {description ? (
+          <Paragraph ellipsis={{ rows: 5 }}>{description}</Paragraph>
+        ) : (
+          <Empty description="No description" />
+        )}
       </Card>
     </Col>
   );

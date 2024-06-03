@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import Sider from 'antd/es/layout/Sider';
 
 import Menu from './CustomMenu.tsx';
+import CustomTitle from "./CustomTitle.tsx";
 
 type CustomSiderProps = {
   collapsed: boolean;
@@ -21,7 +22,8 @@ const CustomSider = ({ collapsed, setCollapsed }: CustomSiderProps) => {
       style={{ overflow: 'hidden', minHeight: '100vh' }}
     >
       <div style={{ margin: 'auto', width: 'fit-content', padding: 27 }}>
-        <h1
+        <CustomTitle
+          level={3}
           style={{
             color: 'white',
             fontFamily: 'cursive',
@@ -32,7 +34,7 @@ const CustomSider = ({ collapsed, setCollapsed }: CustomSiderProps) => {
             {collapsed ? 'N' : 'Note'}
             <span style={{ color: 'white' }}>{collapsed ? 'T' : 'Taking'}</span>
           </Link>
-        </h1>
+        </CustomTitle>
       </div>
       <Menu />
     </Sider>

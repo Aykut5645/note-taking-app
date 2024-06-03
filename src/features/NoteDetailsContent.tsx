@@ -1,10 +1,13 @@
 import { useParams } from 'react-router-dom';
-import { Button, Space } from 'antd';
+import {Button, Empty, Space, Typography} from 'antd';
 
 import { useNotes } from '../hooks/useNotes.tsx';
 import { useMoveBack } from '../hooks/useMoveBack.tsx';
 import NoteDetailsFooter from './NoteDetailsFooter.tsx';
 import CustomResult from '../ui/CustomResult.tsx';
+import CustomTitle from "../ui/CustomTitle.tsx";
+
+const { Paragraph } = Typography;
 
 const NoteDetailsContent = () => {
   const { id } = useParams();
@@ -30,8 +33,12 @@ const NoteDetailsContent = () => {
   return (
     <>
       <Space direction="vertical" size="middle">
-        <h3>{currentNote.title}</h3>
-        <p>{currentNote.description}</p>
+        <CustomTitle level={4}>{currentNote.title}</CustomTitle>
+        {currentNote.description ? (
+          <Paragraph>{currentNote.description}</Paragraph>
+        ) : (
+          <Empty description="No description" />
+        )}
       </Space>
       <NoteDetailsFooter id={id!} />
     </>

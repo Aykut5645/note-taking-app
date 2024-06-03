@@ -23,7 +23,7 @@ const NoteFormContent = ({ action }: NoteFormContentProps) => {
           <Button type="primary" htmlType="submit">
             {action}
           </Button>
-          <Button htmlType="reset">Reset</Button>
+          {action === 'Add' && <Button htmlType="reset">Reset</Button>}
         </Space>
       </Form.Item>
     </>

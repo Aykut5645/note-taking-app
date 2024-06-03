@@ -44,3 +44,7 @@ body {
 .ant-card-body {
   height: 17.2rem !important;
 }
+
+.ant-card .ant-card-actions > li > span {
+  cursor: auto !important;
+}
